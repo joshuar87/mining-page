@@ -3,7 +3,7 @@
 <html>
     <head>
         <!-- Theme Made By www.w3schools.com - No Copyright -->
-        <title>Digital Mint</title>
+        <title>NewMint</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -25,7 +25,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#myPage">Logo</a>
+              <a class="navbar-brand" href="{% url 'home_page:home' %}">Site under construction</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav navbar-right">
@@ -34,6 +34,20 @@
                 <li><a href="#portfolio">PORTFOLIO</a></li>
                 <li><a href="#pricing">PRICING</a></li>
                 <li><a href="#contact">CONTACT</a></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
+                  <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#"><span style="color: red ! important;">ROI Comparison</span></a></li>
+                    <li><a href="#"><span style="color: red ! important;">Useful Links</span></a></li>
+                    <li><a href="#"><span style="color: red ! important;">The Team</span></a></li>
+                  </ul>
+                </li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'accounts:logout' %}" >LOG OUT</a></li>
+                {% else %}
+                    <li><a href="{% url 'accounts:login' %}" >LOG IN</a></li>
+                {% endif %}
               </ul>
             </div>
           </div>
